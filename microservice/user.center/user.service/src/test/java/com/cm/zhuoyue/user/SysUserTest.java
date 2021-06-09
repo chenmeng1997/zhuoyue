@@ -29,4 +29,10 @@ public class SysUserTest {
 
         sysUserInfoMapper.insert(userInfo);
     }
+
+    @Test
+    void delBatch() {
+        sysUserInfoMapper.deleteById(1);
+    }
+
 }

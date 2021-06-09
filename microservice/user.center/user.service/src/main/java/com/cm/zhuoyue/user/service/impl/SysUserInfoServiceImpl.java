@@ -4,7 +4,10 @@ import com.cm.zhuoyue.user.domain.SysUserInfo;
 import com.cm.zhuoyue.user.mapper.SysUserInfoMapper;
 import com.cm.zhuoyue.user.service.ISysUserInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,4 +20,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class SysUserInfoServiceImpl extends ServiceImpl<SysUserInfoMapper, SysUserInfo> implements ISysUserInfoService {
 
+    @Autowired
+    private SysUserInfoMapper sysUserInfoMapper;
+
+
+    @Override
+    public Integer insertSysUser(SysUserInfo sysUserInfo) {
+        return sysUserInfoMapper.insert(sysUserInfo);
+    }
+
+    @Override
+    public Integer sysUserDel(List<Integer> ids) {
+        return sysUserInfoMapper.deleteBatchIds(ids);
+    }
 }
