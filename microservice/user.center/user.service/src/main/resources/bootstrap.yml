@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: user
+    name: user-service
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -18,7 +18,7 @@ spring:
     serialization:
       write-dates-as-timestamps: false
   profiles:
-#    active: dev
+    #    active: dev
     active: local
     include: redis
 
@@ -40,3 +40,7 @@ mybatis-plus:
     id-type: 0
     db-column-underline: false
     refresh-mapper: true
+
+#哪些请求加入swagger api 都不想加入，设置一个不存在的路径。
+swagger:
+  paths: /sysUser/.*
