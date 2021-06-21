@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 1.117.92.221:8848
+      config:
+        server-addr: 1.117.92.221:8848
