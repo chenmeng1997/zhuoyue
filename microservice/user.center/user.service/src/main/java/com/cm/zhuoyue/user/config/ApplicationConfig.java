@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationConfig {
     @Autowired
-    public void initUtil(ApplicationContext ctx){
+    public void initUtil(ApplicationContext ctx) {
         new SpringUtil().setApplicationContext(ctx);
     }
 }

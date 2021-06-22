@@ -1,4 +1,4 @@
-package com.cm.zhuoyue.user;
+package com.cm.zhuoyue;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

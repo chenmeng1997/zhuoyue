@@ -1,7 +1,9 @@
 package com.cm.zhuoyue.user.controller;
 
 
+import com.cm.zhuoyue.common.web.annotation.method.GenericResponse;
 import com.cm.zhuoyue.user.api.client.UserApi;
+import com.cm.zhuoyue.user.api.dto.UsrSysUserAddRequest;
 import com.cm.zhuoyue.user.domain.SysUserInfo;
 import com.cm.zhuoyue.user.service.ISysUserInfoService;
 import io.swagger.annotations.Api;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -28,6 +31,14 @@ public class SysUserInfoController {
 
     @Autowired
     private ISysUserInfoService sysUserInfoService;
+
+    @PostMapping(value = UserApi.ADD_SYS_USER_INFO, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ApiOperation(value = "用户增", notes = "用户增")
+    public GenericResponse<Integer> getSysUserInfoById(@RequestBody @Valid UsrSysUserAddRequest request) {
+        Integer userId = sysUserInfoService.insertSysUser(request);
+        log.info("userInfo :{}", userId);
+        return new GenericResponse<>(userId);
+    }
 
     @PostMapping(value = UserApi.GET_SYS_USER_INFO, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ApiOperation(value = "根据Id获取用户", notes = "根据Id获取用户")
