@@ -12,11 +12,6 @@ public interface UserApi {
     String APPLICATION_NAME = "user-service";
 
     /**
-     * 系统用户信息
-     */
-    String GET_SYS_USER_INFO = "/sysUser/getSysUserInfo";
-
-    /**
      * 系统用户信息 增
      */
     String ADD_SYS_USER_INFO = "/sysUser/addSysUserInfo";

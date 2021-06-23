@@ -65,7 +65,7 @@ public class SysUserInfoServiceImpl extends ServiceImpl<SysUserInfoMapper, SysUs
     }
 
     @Override
-    public Boolean DelSysUser(UsrSysUserDelRequest request) {
+    public Boolean delSysUser(UsrSysUserDelRequest request) {
         if (CollectionUtils.isNotEmpty(request.getIds())) {
             int result = sysUserInfoMapper.deleteBatchIds(request.getIds());
             if (result == 0) {

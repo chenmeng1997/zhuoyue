@@ -23,7 +23,7 @@ public interface ISysUserInfoService extends IService<SysUserInfo> {
     /**
      * 删
      */
-    Boolean DelSysUser(UsrSysUserDelRequest request);
+    Boolean delSysUser(UsrSysUserDelRequest request);
 
     /**
      * 改
