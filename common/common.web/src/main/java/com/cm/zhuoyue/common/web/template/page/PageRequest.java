@@ -18,10 +18,10 @@ public class PageRequest {
 
     @Min(value = 1, message = "页码大于0")
     @ApiModelProperty("页码")
-    private Integer pageNum;
+    private int pageNum;
 
     @Min(value = 1, message = "页容量大于0")
     @ApiModelProperty("页容量")
-    private Integer pageSize;
+    private int pageSize;
 
 }

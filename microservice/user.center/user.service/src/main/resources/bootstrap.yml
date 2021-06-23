@@ -18,12 +18,11 @@ spring:
     serialization:
       write-dates-as-timestamps: false
   profiles:
-    #    active: dev
+#    active: dev
     active: local
     include: redis
 
 mybatis-plus:
-  #mapper-locations: classpath*:mapper/**/*Mapper.xml
   mapper-locations: classpath*:com/cm/**/mapper/*.xml
   typeAliasesPackage: com.cm.zhuoyue.user.domain
   configuration:

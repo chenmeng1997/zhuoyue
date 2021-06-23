@@ -31,45 +31,45 @@ public class SysUserInfoController {
     @Autowired
     private ISysUserInfoService sysUserInfoService;
 
-    @PostMapping(value = UserApi.ADD_SYS_USER_INFO, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ApiOperation(value = "用户增", notes = "用户增")
+    @PostMapping(value = UserApi.ADD_SYS_USER_INFO, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public GenericResponse<Integer> getSysUserInfoById(@RequestBody @Valid UsrSysUserAddRequest request) {
         Integer userId = sysUserInfoService.insertSysUser(request);
         log.info("userInfo :{}", userId);
         return new GenericResponse<>(userId);
     }
 
-    @PostMapping(value = UserApi.DEL_SYS_USER_INFOS_BY_IDS, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ApiOperation(value = "根据Id删除用户", notes = "删除用户")
+    @PostMapping(value = UserApi.DEL_SYS_USER_INFOS_BY_IDS, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public GenericResponse<Boolean> delSysUser(@RequestBody @Valid UsrSysUserDelRequest request) {
         Boolean result = sysUserInfoService.delSysUser(request);
         return new GenericResponse<>(result);
     }
 
-    @PostMapping(value = UserApi.EDIT_SYS_USER_INFO_BY_ID, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ApiOperation(value = "根据Id修改用户", notes = "修改用户")
+    @PostMapping(value = UserApi.EDIT_SYS_USER_INFO_BY_ID, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public GenericResponse<Boolean> updateSysUser(@RequestBody @Valid UsrSysUserUpdateRequest request) {
         Boolean result = sysUserInfoService.updateSysUser(request);
         return new GenericResponse<>(result);
     }
 
-    @PostMapping(value = UserApi.QUERY_SYS_USER_INFOSBY_ID, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ApiOperation(value = "根据Id获取用户", notes = "根据Id获取用户")
+    @PostMapping(value = UserApi.QUERY_SYS_USER_INFOSBY_ID, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public GenericResponse<UsrSysUserInfoResponse> getSysUserById(@RequestBody @Valid UsrSysUserInfoQueryRequest request) {
         UsrSysUserInfoResponse userInfo = sysUserInfoService.getSysUserById(request);
         log.info("userInfo :{}", userInfo);
         return new GenericResponse<>(userInfo);
     }
 
-    @PostMapping(value = UserApi.QUERY_SYS_USER_INFO_LIST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ApiOperation(value = "获取用户列表", notes = "获取用户列表")
+    @PostMapping(value = UserApi.QUERY_SYS_USER_INFO_LIST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public GenericResponse<UsrSysUserInfoListResponse> getSysUserList(@RequestBody @Valid UsrSysUserInfoQueryListRequest request) {
         UsrSysUserInfoListResponse sysUserList = sysUserInfoService.getSysUserList(request);
         return new GenericResponse<>(sysUserList);
     }
 
-    @PostMapping(value = UserApi.QUERY_SYS_USER_INFO_PAGE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ApiOperation(value = "获取用户列表 分页", notes = "用户列表 分页")
+    @PostMapping(value = UserApi.QUERY_SYS_USER_INFO_PAGE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public IPage<UsrSysUserInfoResponse> queryUserForPage(@RequestBody @Valid UsrSysUserInfoQueryListRequest request) {
         return sysUserInfoService.queryUserForPage(request);
     }
