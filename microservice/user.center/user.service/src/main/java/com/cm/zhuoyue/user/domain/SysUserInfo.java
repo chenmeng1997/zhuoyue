@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * <p>

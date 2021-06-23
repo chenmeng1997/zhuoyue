@@ -1,10 +1,5 @@
 package com.cm.zhuoyue.common.web.annotation;
 
-/**
- * @author 陈萌
- * @date 2021/6/22 15:32
- */
-
 import com.cm.zhuoyue.common.web.RegexpConstants;
 import org.hibernate.validator.constraints.CompositionType;
 import org.hibernate.validator.constraints.ConstraintComposition;
@@ -16,12 +11,16 @@ import javax.validation.ReportAsSingleViolation;
 import javax.validation.constraints.Pattern;
 import java.lang.annotation.*;
 
+/**
+ * @author 陈萌
+ * @date 2021/6/22
+ */
 @ConstraintComposition(CompositionType.AND)
 @Pattern(regexp = RegexpConstants.REGEXP_TELEPHONE_MOBILE)
 @Length(min = 0, max = 11)
 @Documented
 @Constraint(validatedBy = {})
-@Target({ ElementType.METHOD, ElementType.FIELD, ElementType.CONSTRUCTOR, ElementType.PARAMETER })
+@Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @ReportAsSingleViolation
 public @interface Phone {

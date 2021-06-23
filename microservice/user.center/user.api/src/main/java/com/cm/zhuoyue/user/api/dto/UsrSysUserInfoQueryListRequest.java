@@ -1,13 +1,11 @@
 package com.cm.zhuoyue.user.api.dto;
 
+import com.cm.zhuoyue.common.web.template.page.PageRequest;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -15,8 +13,8 @@ import java.util.Date;
  * @date 2021/6/21 22:11
  */
 @Data
-@ApiModel(value = "SysUserInfo 单查响应", description = "SysUserInfo 详情")
-public class UsrSysUserInfoResponse {
+@ApiModel(value = "SysUserInfo 列表请求", description = "管理平台用户 列表")
+public class UsrSysUserInfoQueryListRequest extends PageRequest {
 
     @ApiModelProperty(value = "主键")
     private Integer id;

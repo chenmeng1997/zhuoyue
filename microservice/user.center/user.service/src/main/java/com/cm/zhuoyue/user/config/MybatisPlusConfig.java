@@ -1,7 +1,10 @@
 package com.cm.zhuoyue.user.config;
+import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import com.baomidou.mybatisplus.core.injector.ISqlInjector;
 import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @date 2021/6/9
  */
 @Configuration
+@ConditionalOnClass(value = {PaginationInterceptor.class})
 public class MybatisPlusConfig {
 
     //逻辑删除

@@ -26,7 +26,8 @@ public enum BizErrorCodeEnum implements ErrorCode {
     SERVICE_TYPE_IS_NULL("4006", "serviceType 不存在"),
     STATUS_ERROR("4007", "状态传入错误"),
     PARAM_ERROR("4008", "参数错误"),
-    INSERT_ERROR("4009", "状态传入错误");
+    INSERT_ERROR("4009", "状态传入错误"),
+    UPDATE_EXCEPTION("4010", "物理删除异常"),;
     /**
      * 错误码
      */

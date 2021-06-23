@@ -1,6 +1,7 @@
 package com.cm.zhuoyue.user.service;
 
-import com.cm.zhuoyue.user.api.dto.UsrSysUserAddRequest;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.cm.zhuoyue.user.api.dto.*;
 import com.cm.zhuoyue.user.domain.SysUserInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -22,11 +23,26 @@ public interface ISysUserInfoService extends IService<SysUserInfo> {
     /**
      * 删
      */
-    Integer DelSysUser(List<Integer> ids);
+    Boolean DelSysUser(UsrSysUserDelRequest request);
 
     /**
      * 改
      */
-    Integer updateSysUser ();
+    Boolean updateSysUser (UsrSysUserUpdateRequest request);
+
+    /**
+     * 据id查
+     */
+    UsrSysUserInfoResponse getSysUserById(UsrSysUserInfoQueryRequest request);
+
+    /**
+     * 列表
+     */
+    UsrSysUserInfoListResponse getSysUserList(UsrSysUserInfoQueryListRequest request);
+
+    /**
+     * 分页
+     */
+    IPage<UsrSysUserInfoResponse> queryUserForPage (UsrSysUserInfoQueryListRequest request);
 
 }
