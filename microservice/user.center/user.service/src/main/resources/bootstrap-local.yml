@@ -2,6 +2,23 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: 1.117.92.221:8848
       config:
-        server-addr: localhost:8848
+        server-addr: 1.117.92.221:8848
+        #命名空间
+        namespace: d1155046-25d4-4162-aaa9-ed9d91322add
+        #分组
+        group: USER_GROUP
+        #文件名
+        prefix: ${spring.application.name}
+        #文件格式
+        file-extension: yaml
+        #刷新
+        refreshable-dataids:
+
+  # 曝光
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: '*'

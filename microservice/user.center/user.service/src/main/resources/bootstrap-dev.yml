@@ -5,3 +5,23 @@ spring:
         server-addr: 1.117.92.221:8848
       config:
         server-addr: 1.117.92.221:8848
+        #命名空间
+        namespace: d1155046-25d4-4162-aaa9-ed9d91322add
+        #多文件加载
+        ext-config:
+            #所在分组
+          - group: USER_GROUP
+            #文件全称
+            data-id: user-service-dev.yaml
+            #刷新
+            refresh: true
+          - group: DEFAULT_GROUP
+            data-id: redis-config.yaml
+            refresh: true
+
+# 曝光
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
