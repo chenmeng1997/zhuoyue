@@ -15,3 +15,7 @@ spring:
 #    active: dev
     active: local
     include: redis,jdbc
+
+#哪些请求加入swagger api 都不想加入，设置一个不存在的路径。
+swagger:
+  paths: /sysUser/.*
