@@ -33,7 +33,7 @@ public class SysUserInfoController {
 
     @ApiOperation(value = "用户增", notes = "用户增")
     @PostMapping(value = UserApi.ADD_SYS_USER_INFO, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public GenericResponse<Integer> getSysUserInfoById(@RequestBody @Valid UsrSysUserAddRequest request) {
+    public GenericResponse<Integer> insertSysUser(@RequestBody @Valid UsrSysUserAddRequest request) {
         Integer userId = sysUserInfoService.insertSysUser(request);
         log.info("userInfo :{}", userId);
         return new GenericResponse<>(userId);

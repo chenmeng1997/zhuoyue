@@ -1,4 +1,4 @@
-package com.cm.zhuouyue.common.utils.baseUtils;
+package com.cm.zhuoyue.common.utils.baseUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

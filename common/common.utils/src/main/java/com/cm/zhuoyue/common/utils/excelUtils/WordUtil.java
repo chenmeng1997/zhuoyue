@@ -1,4 +1,4 @@
-package com.cm.zhuouyue.common.utils.excelUtils;
+package com.cm.zhuoyue.common.utils.excelUtils;
 
 import cn.afterturn.easypoi.word.WordExportUtil;
 import cn.afterturn.easypoi.word.entity.params.ExcelListEntity;

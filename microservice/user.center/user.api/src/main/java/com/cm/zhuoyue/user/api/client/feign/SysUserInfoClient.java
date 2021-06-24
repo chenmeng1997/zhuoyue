@@ -24,7 +24,7 @@ public interface SysUserInfoClient {
      * 管理平台 用户 增
      */
     @PostMapping(value = UserApi.ADD_SYS_USER_INFO, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    GenericResponse<Integer> getSysUserInfoById(@RequestBody @Valid UsrSysUserAddRequest request);
+    GenericResponse<Integer> insertSysUser(@RequestBody @Valid UsrSysUserAddRequest request);
 
     /**
      * 管理平台 用户 删

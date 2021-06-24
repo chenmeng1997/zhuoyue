@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 1.117.92.221:8848
+      config:
+        server-addr: 1.117.92.221:8848
+        #命名空间
+        namespace: d1155046-25d4-4162-aaa9-ed9d91322add
+        #多文件加载
+        ext-config:
+          - group: PUBLIC_GROUP
+            data-id: public-service-dev.yaml
+            refresh: true
+          - group: DEFAULT_GROUP
+            data-id: redis-config.yaml
+            refresh: true
