@@ -24,15 +24,25 @@ import javax.validation.Valid;
 @RestController
 public class TestController {
 
-    //    @Autowired
-//    private SysUserInfoClient sysUserInfoClient;
+    @Autowired
+    private SysUserInfoClient sysUserInfoClient;
     @Autowired
     private RestTemplate restTemplate;
 
+    /*
     @PostMapping(value = UserApi.QUERY_SYS_USER_INFOSBY_ID, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public GenericResponse<Object> getSysUserById(@RequestBody @Valid UsrSysUserInfoQueryRequest request) {
         Object result = restTemplate.postForObject("http://user-service/sysUser/querySysUserInfoById", request, Object.class);
         log.info("userInfo :{}", result);
         return new GenericResponse<>(result);
     }
+    */
+
+    @PostMapping(value = UserApi.QUERY_SYS_USER_INFOSBY_ID, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    GenericResponse<UsrSysUserInfoResponse> getSysUserById(@RequestBody @Valid UsrSysUserInfoQueryRequest request) {
+        GenericResponse<UsrSysUserInfoResponse> result = sysUserInfoClient.getSysUserById(request);
+        log.info("userInfo :{}", result);
+        return result;
+    }
+
 }
