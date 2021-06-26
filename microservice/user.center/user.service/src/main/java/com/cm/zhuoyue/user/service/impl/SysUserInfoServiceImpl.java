@@ -1,5 +1,6 @@
 package com.cm.zhuoyue.user.service.impl;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -87,6 +88,7 @@ public class SysUserInfoServiceImpl extends ServiceImpl<SysUserInfoMapper, SysUs
     }
 
     @Override
+    @SentinelResource(value = "sysUserInfoService.getSysUserById")
     public UsrSysUserInfoResponse getSysUserById(UsrSysUserInfoQueryRequest request) {
         UsrSysUserInfoResponse response = new UsrSysUserInfoResponse();
         SysUserInfo userInfo = sysUserInfoMapper.selectById(request.getId());

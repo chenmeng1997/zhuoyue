@@ -14,7 +14,15 @@ spring:
         #文件格式
         file-extension: yaml
         #刷新
-        refreshable-dataids:
+        #refreshable-dataids:
+    sentinel:
+      transport:
+        #sentinel控制台的请求地址
+        dashboard: localhost:8081
+        #8719 如果端口被占用 就从8719+1开始 一直找到那个端口没被占用为止
+        port: 8719
+      #取消控制台懒加载
+      eager: true
 
   # 曝光
   management:

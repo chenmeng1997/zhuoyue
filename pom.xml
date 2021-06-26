@@ -22,13 +22,15 @@
         <relativePath/>
     </parent>
 
-
     <properties>
         <java.version>1.8</java.version>
         <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
         <spring-boot-test.version>2.2.5.RELEASE</spring-boot-test.version>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <nacos.version>2.1.0.RELEASE</nacos.version>
+        <sentinel.version>2.2.0.RELEASE</sentinel.version>
+        <openfeign.version>2.2.0.RELEASE</openfeign.version>
+        <ribbon.version>2.2.0.RELEASE</ribbon.version>
         <mybatis-plus.version>3.1.0</mybatis-plus.version>
         <lombok.version>1.16.8</lombok.version>
         <mysql.version>8.0.21</mysql.version>
@@ -53,15 +55,21 @@
         <easypoi.version>4.0.0</easypoi.version>
     </properties>
 
-
     <dependencyManagement>
         <dependencies>
 
-            <!--spring-boot-->
+            <!--spring-boot begin-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
                 <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <!--测试-->
             <dependency>
@@ -100,8 +108,9 @@
                 <artifactId>aspectjweaver</artifactId>
                 <version>${aspect.version}</version>
             </dependency>
+            <!--spring-boot end-->
 
-            <!--SpringCloud-->
+            <!--SpringCloud begin-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -109,7 +118,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
+            <!--spring-cloud-alibaba-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.1.0.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!--nacos配置中心-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
@@ -127,25 +143,32 @@
                 <artifactId>nacos-client</artifactId>
                 <version>1.1.0</version>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
 
-            <!--WEB-->
+            <!--sentinel 流控-->
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter</artifactId>
-                <version>${spring-boot.version}</version>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+                <version>${sentinel.version}</version>
+            </dependency>
+            <!--sentinel 持久化-->
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-datasource-nacos</artifactId>
+                <version>1.7.0</version>
+            </dependency>
+            <!--服务调用-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>${openfeign.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring-boot.version}</version>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+                <version>${ribbon.version}</version>
             </dependency>
+            <!--SpringCloud begin-->
+
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
@@ -158,34 +181,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-thymeleaf</artifactId>
                 <!--<version>${spring-boot.version}</version>-->
-            </dependency>
-
-            <!--服务调用-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-openfeign</artifactId>
-                <version>2.0.0.RELEASE</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-                <version>2.0.0.RELEASE</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <version>${spring-boot-test.version}</version>
-                <scope>test</scope>
-            </dependency>
-
-            <!--热部署-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-devtools</artifactId>
-                <version>${spring-boot.version}</version>
-                <optional>true</optional>
             </dependency>
 
             <!--数据库-->
@@ -372,17 +367,6 @@
                 <version>1.9</version>
             </dependency>
 
-            <!--切面-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-aop</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.aspectj</groupId>
-                <artifactId>aspectjweaver</artifactId>
-                <version>${aspect.version}</version>
-            </dependency>
             <!--二维码生成、解析-->
             <dependency>
                 <groupId>com.google.zxing</groupId>
@@ -395,11 +379,6 @@
                 <version>3.3.0</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>3.5</version>
-            </dependency>
         </dependencies>
 
     </dependencyManagement>
