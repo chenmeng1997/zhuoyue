@@ -25,6 +25,8 @@ spring:
         dashboard: 1.117.92.221:8080
         #8719 如果端口被占用 就从8719+1开始 一直找到那个端口没被占用为止
         port: 8719
+        #向服务端注册地址 可不指定
+        client-ip: localhost
       #取消控制台懒加载
       eager: true
 
