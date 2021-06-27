@@ -12,7 +12,7 @@
     <artifactId>support</artifactId>
     <packaging>pom</packaging>
     <modules>
-
+        <module>sentinel-dashboard</module>
     </modules>
 
 

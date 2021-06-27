@@ -53,6 +53,7 @@
         <aspect.version>1.8.13</aspect.version>
         <commons-io.version>2.4</commons-io.version>
         <easypoi.version>4.0.0</easypoi.version>
+        <sentinel-dashboard.version>4.0.0</sentinel-dashboard.version>
     </properties>
 
     <dependencyManagement>
