@@ -15,3 +15,18 @@ spring:
           - group: DEFAULT_GROUP
             data-id: redis-config.yaml
             refresh: true
+#    sentinel:
+#      transport:
+#        #sentinel控制台的请求地址
+#        dashboard: localhost:8081
+#        #8719 如果端口被占用 就从8719+1开始 一直找到那个端口没被占用为止
+#        port: 8719
+#      #取消控制台懒加载
+#      eager: true
+
+  # 曝光
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: '*'

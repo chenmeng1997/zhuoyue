@@ -26,6 +26,10 @@ public class PublicServiceApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(PublicServiceApplication.class, args);
+        try {
+            SpringApplication.run(PublicServiceApplication.class, args);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 }

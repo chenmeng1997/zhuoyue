@@ -1,0 +1,16 @@
+spring:
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: 2322051194@qq.com # 你的邮箱地址
+    password: brimwytdmruweaje # 你的授权码（126 和 163 以及 qq 邮箱 都需要授权码登录，没有授权码的直接登录网页版邮箱设置里设置）
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            enable: true  #QQ邮箱必须加此注解

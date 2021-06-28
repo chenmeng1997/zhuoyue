@@ -1,0 +1,30 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 1.117.92.221:8848
+      config:
+        server-addr: 1.117.92.221:8848
+        #命名空间
+        namespace: d1155046-25d4-4162-aaa9-ed9d91322add
+        #分组
+        group: DEFAULT_GROUP
+        #文件名
+        prefix: ${spring.application.name}
+        #文件格式
+        file-extension: yaml
+    sentinel:
+      transport:
+        #sentinel控制台的请求地址
+        dashboard: localhost:8081
+        #8719 如果端口被占用 就从8719+1开始 一直找到那个端口没被占用为止
+        port: 8719
+      #取消控制台懒加载
+      eager: true
+
+  # 曝光
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: '*'
