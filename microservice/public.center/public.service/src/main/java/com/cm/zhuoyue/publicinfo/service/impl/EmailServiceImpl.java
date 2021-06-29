@@ -26,11 +26,7 @@ import java.util.Map;
 public class EmailServiceImpl implements IEmailService {
 
     @Value("${spring.mail.username}")
-    private String from = "2322051194@qq.com";
-
-    @Value("${spring.mail.password}")
-    private String pass = "spring.mail.password";
-
+    private String from;
 
     @Autowired
     private JavaMailSender mailSender;
