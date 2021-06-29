@@ -4,6 +4,7 @@ import com.cm.zhuoyue.common.web.enums.BizErrorCodeEnum;
 import com.cm.zhuoyue.common.web.exception.BizException;
 import com.cm.zhuoyue.publicinfo.service.IEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -24,10 +25,10 @@ import java.util.Map;
 @Service
 public class EmailServiceImpl implements IEmailService {
 
-    //@Value("${spring.mail.username}")
+    @Value("${spring.mail.username}")
     private String from = "2322051194@qq.com";
 
-    //@Value("${spring.mail.password}")
+    @Value("${spring.mail.password}")
     private String pass = "spring.mail.password";
 
 

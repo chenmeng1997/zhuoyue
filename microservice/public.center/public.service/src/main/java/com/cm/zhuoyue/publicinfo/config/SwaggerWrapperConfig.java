@@ -37,7 +37,6 @@ public class SwaggerWrapperConfig {
     public Docket createDocket() {
 
         String paths = env.getProperty("swagger.paths");
-
         String[] pathArray = paths.split(",");
         Predicate[] predicates = null;
         if (pathArray.length > 0) {

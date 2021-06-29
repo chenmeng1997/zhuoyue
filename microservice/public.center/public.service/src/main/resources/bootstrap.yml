@@ -7,9 +7,9 @@ spring:
   application:
     name: public-service
   profiles:
-    include: jdbc
     active: dev
 #    active: local
+    include: jdbc,mail
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8

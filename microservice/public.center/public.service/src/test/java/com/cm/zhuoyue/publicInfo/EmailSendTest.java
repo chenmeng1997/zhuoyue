@@ -4,6 +4,7 @@ import com.cm.zhuoyue.publicinfo.service.IEmailService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.env.Environment;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
@@ -30,6 +31,7 @@ public class EmailSendTest {
         sendSimpleMail();
     }
 
+    @Test
     public void sendSimpleMail(){
         emailService.sendSimpleTextMail("321502531@qq.com","测试spring boot imail-主题","测试spring boot imail - 内容");
     }
@@ -83,7 +85,7 @@ public class EmailSendTest {
     public void testTemplateMailTest() throws MessagingException {
         Context context = new Context();
         Map<String, Object> map = new HashMap<>();
-        map.put("id","220");
+        map.put("id","你好");
         emailService.sendTemplateMail("321502531@qq.com","这是一封HTML模板邮件",map,"emailTeplate");
     }
 

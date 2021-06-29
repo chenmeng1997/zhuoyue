@@ -9,24 +9,19 @@ spring:
         namespace: d1155046-25d4-4162-aaa9-ed9d91322add
         #多文件加载
         ext-config:
+          #所在分组
           - group: PUBLIC_GROUP
+            #文件全称
             data-id: public-service-dev.yaml
+            #刷新
             refresh: true
           - group: DEFAULT_GROUP
             data-id: redis-config.yaml
             refresh: true
-#    sentinel:
-#      transport:
-#        #sentinel控制台的请求地址
-#        dashboard: localhost:8081
-#        #8719 如果端口被占用 就从8719+1开始 一直找到那个端口没被占用为止
-#        port: 8719
-#      #取消控制台懒加载
-#      eager: true
 
-  # 曝光
-  management:
-    endpoints:
-      web:
-        exposure:
-          include: '*'
+# 曝光
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
